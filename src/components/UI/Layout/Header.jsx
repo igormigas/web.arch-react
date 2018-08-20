@@ -20,7 +20,7 @@ const header = (props) => {
 	return (
 		<header className={classes.Header}>
 			<div className={classes.Logo}>
-				<Link to="/"><img src="/assets/images/logo.png" /></Link>
+				<Link to="/"><img src="/images/logo.png" /></Link>
 			</div>
 			{contact}
 			<div onClick={props.toggleEvent}>
