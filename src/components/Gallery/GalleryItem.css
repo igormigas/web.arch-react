@@ -1,0 +1,16 @@
+.Image {
+	background-position: 50% 50%;
+	background-size: cover;
+	height: 150px;
+	filter: grayscale(40%) brightness(120%);
+	box-shadow: 10px 10px 36px -6px rgba(0,0,0,0.24);
+	transition: filter 0.1s ease-in-out;
+}
+
+.Image:hover {
+	filter: grayscale(20%) brightness(110%);
+}
+
+.ItemTitle {
+	margin: 8px 0px 15px 0px;
+}

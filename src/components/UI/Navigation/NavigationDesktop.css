@@ -1,0 +1,48 @@
+.Nav {
+	position: relative;
+	width: inherit;
+	height: 100%;
+}
+
+.Nav ul {
+	margin: 0px;
+	padding: 0px;
+	display: flex;
+	flex-flow: row;
+	justify-content: flex-end;
+	list-style-type: none;
+}
+
+.Nav li {
+	display: block;
+	
+	margin: 15px 0px;
+}
+
+.Nav li:first-of-type {
+
+}
+
+.Nav a {
+	display: block;
+	padding: 3px 15px;
+	padding-right: 15px;
+	margin-left: 20px;
+	color: white;
+	font-family: 'Futura', 'Arial Black', sans-serif;
+	font-size: 18px;
+	text-decoration: none;
+	transition: transform 0.4s;
+}
+
+.Nav a:hover {
+	color: #222;
+	background-color: #a5ceca;
+	/*transform: rotate(-4deg);*/
+}
+
+@media (max-width: 600px) {
+	.Nav {
+		display: none;
+	}
+}

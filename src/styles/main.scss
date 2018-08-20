@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:200,300,400,600');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+html, body {
+	@extend %clearMargins;
+	
+	font-family: 'Roboto', Arial, sans-serif;
+	font-size: 13px;
+	font-weight: 400;
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+a {
+	color: rgb(50,50,50);
+	font-size: 13px;
+	font-weight: 400;
+	text-decoration: none;
+	line-height: 20px;
+	letter-spacing: 0.3px;
+}
+
+ul {
+	@extend %clearMargins;
+}
+
+
+%clearMargins {
+	margin: 0px;
+	padding: 0px;
+}

@@ -1,0 +1,18 @@
+.Footer {
+	margin: 25px 0px;
+	padding: 12px 0px;
+	border-top: 1px solid #eaeaea;
+	text-align: center;
+	color: #aaa;
+}
+
+.Flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.Box {
+	border: 2px solid blue;
+	flex-basis: 250px;
+	flex-grow: 1;
+}

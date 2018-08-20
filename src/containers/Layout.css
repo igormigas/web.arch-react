@@ -1,0 +1,32 @@
+.App {
+	padding: 15px 15px;
+	min-width: 320px;
+}
+
+@media (min-width: 500px) and (max-width: 1023px) {
+	.App {
+		margin: 0px auto;
+		padding: 15px 50px;
+		max-width: 750px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.App {
+		margin: 0px auto;
+		padding: 15px 75px;
+		max-width: 1170px;
+	}
+}
+
+.TopButton {
+	display: block;
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
+	z-index: 50;
+}
+
+@media (min-width: 600px) {
+	.TopButton { display: none; }
+}

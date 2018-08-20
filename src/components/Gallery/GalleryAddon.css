@@ -1,0 +1,29 @@
+.Image {
+	background-position: 50% 50%;
+	background-size: cover;
+	position: relative;
+	height: 150px;
+	background-color: #f8f8f8;
+	text-align: right;
+	border: 1px solid #ddd;
+	box-shadow: 10px 10px 36px -6px rgba(0,0,0,0.14);
+}
+
+.Image p {
+	position: absolute;
+	right: 10px;
+	bottom: 8px;
+	width: 90%;
+	margin: 0px;
+	line-height: 22px;
+	color: #666;
+	font: {
+		size: 18px;
+		weight: 600;
+	};
+}
+
+
+.ItemTitle {
+	margin: 8px 0px 15px 0px;
+}

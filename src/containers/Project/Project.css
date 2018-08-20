@@ -1,0 +1,49 @@
+.Project {
+	display: flex;
+	flex-direction: column;
+}
+
+.Overview {	
+	flex: 0 0 auto;
+}
+
+.Gallery {
+	flex: 1 1 auto;
+	margin-bottom: 20px;
+}
+
+@media (min-width: 1024px) {
+	.Project {
+		flex-direction: row;
+	}
+
+	.Overview {	
+		flex: 0 0 300px;
+		margin-right: 50px;
+	}
+}
+
+.Gallery img {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.Title {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+
+.Details {
+	list-style-type: none;
+	margin: 20px 0px;
+}
+
+.Details li {
+	margin-bottom: 4px;
+}
+
+.Description {
+	margin: 20px 0px;
+	line-height: 19px;
+}

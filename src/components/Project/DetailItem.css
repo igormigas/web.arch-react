@@ -1,0 +1,16 @@
+.DetailsLabel {
+	display:block;
+	width: 95px;
+	float: left;
+	color: #aaa;
+}
+
+.DetailsLabel:after {
+	content: ':';
+	margin-left: 2px;
+}
+
+.DetailsValue {
+	display: block;
+	margin-left: 100px;
+}
