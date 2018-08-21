@@ -18,16 +18,17 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const webpack = require("webpack");
 const dotenv = require("dotenv");
 
+// Useful modules
+//const webpack = require('webpack');
+const path = require('path');
+
 // DOTENV
-const env = dotenv.config().parsed;
+const dotenvFile = devMode ? '.env.development' : '.env.production';
+const env = dotenv.config({'path': path.resolve(__dirname, dotenvFile)}).parsed;
 const envKeys = Object.keys(env).reduce((prev, next) => {
 	prev[`process.env.${next}`] = JSON.stringify(env[next]);
 	return prev;
 }, {});
-
-// Useful modules
-//const webpack = require('webpack');
-const path = require('path');
 
 //
 // Start of config

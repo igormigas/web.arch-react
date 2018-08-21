@@ -14,8 +14,6 @@ import Contact from './containers/Contact/Contact';
 
 class App extends React.Component {
 	render() {
-		let api = process.env.API_HOST;
-		console.log('Procesy:', api);
 		return (
 			<Router>
 				<ScrollToTop>

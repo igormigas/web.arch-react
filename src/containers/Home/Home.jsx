@@ -1,6 +1,5 @@
 import React from 'react';
-import axios from '../../axios';
-import database from '../../database';
+import API from '../../database/api';
 
 import Gallery from '../../components/Gallery/Gallery';
 import GalleryItem from '../../components/Gallery/GalleryItem';
@@ -16,31 +15,21 @@ class Home extends React.Component {
 		super(props);
 
 		this.state = {
-			dataPosts: database.getAllPosts(),
-			dataFields: database.getAllFields()
+			dataPosts: null
 		}
 
-		//spinnerService.show('mainLoader');
+		spinnerService.show('mainLoader');
 	}
 
 	componentDidMount() {
-		/*let query = '/posts/?per_page=100';
-
-		if (!axiosCache.isCached(query)) {
-			axios.get(query)
-				.then( response => {
-					this.setState({
-						dataPosts: response.data
-					});
-					spinnerService.hide('mainLoader');
-				})
-				.catch();
-		} else {
-			this.setState({
-				dataPosts: axiosCache.get(query)
-			});
-			spinnerService.hide('mainLoader');
-		}*/
+		API.endpoints.getAll()
+			.then( response => {
+				this.setState({
+					dataPosts: response.data.entries.reverse()
+				});
+				spinnerService.hide('mainLoader');
+			})
+			.catch();
 	}
 
 	createAddons() {

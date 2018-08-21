@@ -1,6 +1,5 @@
 import React from 'react';
-import axios from '../../axios';
-import database from '../../database';
+import API from '../../database/api';
 
 import DetailItem from '../../components/Project/DetailItem';
 import Box from '../../hoc/Box';
@@ -19,13 +18,20 @@ class Project extends React.Component {
 			id: this.props.match.params.id ? this.props.match.params.id : null,
 			data: null,
 		};
-		//spinnerService.show('mainLoader');
+		spinnerService.show('mainLoader');
 	}
 
 	componentDidMount() {
-		this.setState({
-			data: database.getPost(this.state.id)
-		});
+		API.endpoints.getID(this.state.id)
+			.then( response => response.data.entries[0])
+			.then( response => {
+				this.setState({
+					data: response
+				});
+				spinnerService.hide('mainLoader');
+			})
+			.catch();
+
 		/*let query = '/posts/' + this.state.id;
 		
 		if (!axiosCache.isCached(query)) {
