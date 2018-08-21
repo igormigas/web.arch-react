@@ -5,7 +5,6 @@ import Gallery from '../../components/Gallery/Gallery';
 import GalleryItem from '../../components/Gallery/GalleryItem';
 import GalleryAddon from '../../components/Gallery/GalleryAddon';
 import spinnerService from '../../components/UI/Spinner/spinnerService';
-import axiosCache from '../../cache/axiosCache';
 
 import classes from './Home.css';
 
@@ -22,10 +21,10 @@ class Home extends React.Component {
 	}
 
 	componentDidMount() {
-		API.endpoints.getAll()
+		API.getAll()
 			.then( response => {
 				this.setState({
-					dataPosts: response.data.entries.reverse()
+					dataPosts: response.data.entries
 				});
 				spinnerService.hide('mainLoader');
 			})
@@ -43,11 +42,14 @@ class Home extends React.Component {
 		let galleryItems, addons, posts;
 
 		if (this.state.dataPosts) {
+			let dataPosts = [...this.state.dataPosts];
+			dataPosts.reverse();
+
 			if (this.props.match.path != '/projects') {
 				addons = this.createAddons();
-				posts = this.state.dataPosts.slice(0, 8 - addons.length);
+				posts = dataPosts.slice(0, 8 - addons.length);
 			} else {
-				posts = this.state.dataPosts;
+				posts = dataPosts;
 			}			
 
 			galleryItems = posts.map( item => {

@@ -4,7 +4,6 @@ import API from '../../database/api';
 import DetailItem from '../../components/Project/DetailItem';
 import Box from '../../hoc/Box';
 import spinnerService from '../../components/UI/Spinner/spinnerService';
-import axiosCache from '../../cache/axiosCache';
 import { detailsLabels } from '../../data/constants';
 
 import classes from './Project.css'
@@ -22,7 +21,7 @@ class Project extends React.Component {
 	}
 
 	componentDidMount() {
-		API.endpoints.getID(this.state.id)
+		API.getID(this.state.id)
 			.then( response => response.data.entries[0])
 			.then( response => {
 				this.setState({

@@ -1,27 +1,26 @@
-import axios from 'axios';
-import axiosCache from '../cache/axiosCache';
+import APICore from './apiCore';
 
-class API {
+//
+// INIT
+//
+const api = new APICore(null,'/api/collections/get');
 
-	constructor(host=null, alias='') {
-		this.host = host ? host : process.env.API_HOST;
-		this.token = process.env.API_TOKEN;
-		this.alias = alias;
+//
+// INTERCEPTORS
+//
+/*
+api.axios.interceptors.response.use( response => {
+	return response;
+}, error => {
+	return Promise.reject(error);
+});
+*/
 
-		this.baseURL = this.host + this.alias;
+//
+// MODEL FUNCTIONS
+//
+api.fn.getAll 		= ()				=> api.get('/posts/?per_page=100');
+api.fn.getID 			= ( id ) 		=> api.get(`/posts/?filter[id]=${id}`);
+api.fn.postForm 	= ( data ) 	=> api.post(`/posts`, data);
 
-		this.endpoints = {}
-	}
-
-	compile(query) {
-		return this.baseURL + query + '&token=' + this.token;
-	}
-
-}
-
-const instance = new API(null,'/api/collections/get');
-
-instance.endpoints.getAll 		= ()		=> axios.get(instance.compile('/posts/?per_page=100'));
-instance.endpoints.getID 		= ( id ) 	=> axios.get(instance.compile(`/posts/?filter[id]=${id}`));
-
-export default instance;
+export default api.fn;
