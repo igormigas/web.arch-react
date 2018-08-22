@@ -29,10 +29,15 @@ class apiCore {
 			})
 		} else {
 			let promise = callback(this.compile(query), data);
-
-			promise.then( response => {
-				cache.set(query, response)
-			});
+			
+			promise
+				.then( response => {
+					cache.set(query, response);
+				})
+				.catch( error => {
+					console.log(error);
+					return Promise.reject(error);
+				});
 
 			return promise;
 		}
