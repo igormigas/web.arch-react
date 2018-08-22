@@ -10,7 +10,8 @@ class Spinner extends React.Component {
 		super(props);
 
 		this.state = {
-			showSpinner: false
+			showSpinner: false,
+			showMessage: false
 		}
 
 		if (this.props.hasOwnProperty('service')) {
@@ -30,15 +31,44 @@ class Spinner extends React.Component {
 		return this.props.name;
 	}
 
-	get show() {
+	get status() {
 		return this.state.showSpinner;
 	}
 
-	set show(state) {
-		this.setState({showSpinner: state});
+	show() {
+		this.startTimeout();
+		this.setState({showSpinner: true});
+	}
+
+	hide() {
+		this.stopTimeout();
+		this.setState({
+			showSpinner: false,
+			showMessage: false
+		});
+	}
+
+	startTimeout() {
+		this.timeout = setTimeout(() => {
+			this.setState({
+				showMessage: true
+			});
+			console.log('TIMEOUT');
+		}, 8000);
+	}
+
+	stopTimeout() {
+		clearTimeout(this.timeout);
 	}
 
 	render() {
+
+		const message = this.state.showMessage ? (
+			<div className={classes.Message}>
+				Strona może mieć problem z załadowaniem danych...
+			</div>
+		) : null;
+
 		return (
 			this.state.showSpinner ? <div className={classes.Spinner}>
 				<div className={classes.preloadJuggle}>
@@ -46,6 +76,7 @@ class Spinner extends React.Component {
 					<div></div>
 					<div></div>
 				</div>
+				{message}
 			</div> : null);
 	}
 }
