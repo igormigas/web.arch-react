@@ -7,6 +7,15 @@
 	background-color: #fff;
 }
 
+.Message {
+  display: block;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: #aaa;
+}
+
 $boxWidth: 300px;
 $ballWidth: 16px;
 $translateX: 45px;
