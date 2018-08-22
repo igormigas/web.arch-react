@@ -28,7 +28,7 @@ class spinnerService {
 	show(name) {
 		this.cache.forEach( spinner => {
 			if (spinner.name === name) {
-				spinner.show = true;
+				spinner.show();
 			}
 		})
 	}
@@ -36,7 +36,7 @@ class spinnerService {
 	hide(name) {
 		this.cache.forEach( spinner => {
 			if (spinner.name === name) {
-				spinner.show = false;
+				spinner.hide();
 			}
 		})
 	}
