@@ -1,6 +1,6 @@
 node_modules
 _archive
-dist/
-!dist/images
+dist
+*.dist.js
 .env.*
 *.zip
